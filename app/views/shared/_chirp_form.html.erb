@@ -1,0 +1,6 @@
+<%= form_with model: Chirp.new, url: chirps_path, local: true do |f| %>
+    <%= f.text_area :body, placeholder: "What's happening?", class: "form-control bg-light chirp-input w-100 mb-3" %>
+    <div class="d-flex justify-content-end">
+        <%= f.submit "Chirp", class: "btn btn-primary rounded-pill" %>
+    </div>
+<% end %>

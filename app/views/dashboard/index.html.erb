@@ -5,12 +5,7 @@
         <div class="mb-3">
             <%= link_to "Home", dashboard_path, class: "fs-4 text-decoration-none text-black fw-semibold"%>
         </div>
-        <%= form_with model: Chirp.new, url: chirps_path, local: true do |f| %>
-            <%= f.text_area :body, placeholder: "What's happening?", class: "form-control bg-light chirp-input w-100 mb-3" %>
-            <div class="d-flex justify-content-end">
-                <%= f.submit "Chirp", class: "btn btn-primary rounded-pill" %>
-            </div>
-        <% end %>
+            <%= render "shared/chirp_form"%>
         <ul>
             <% Chirp.find_each do |chirp| %>
                 <li> <%= chirp.body%> </li>
