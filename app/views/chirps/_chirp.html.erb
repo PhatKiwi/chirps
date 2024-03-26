@@ -1,0 +1,8 @@
+<div class="py-3 px-4 chirp">
+    <% if chirp.created_at < 1.day.ago%>
+        <p> @<%= chirp.user.username %> &middot <%= chirp.created_at.strftime("%b %-d")%></p>
+    <% else %>
+        <p> @<%= chirp.user.username %> &middot <%= time_ago_in_words(chirp.created_at)%> ago</p>
+    <% end %>
+    <p class="mb-0"> <%= chirp.body %> </p>
+</div>
