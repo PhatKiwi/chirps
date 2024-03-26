@@ -5,12 +5,12 @@
         <div class="mb-3">
           <%= link_to "Home", dashboard_path, class: "fs-4 text-decoration-none text-black fw-semibold"%>
         </div>
-
         <div class="mb-3">
           <%= render "shared/chirp_form"%>
         </div>
-        
-        <%= render Chirp.order(created_at: :desc) %>
+        <div id="chirps">
+          <%= render Chirp.order(created_at: :desc) %>
+        </div>
     </div>
     <div class="col">
       One of three columns

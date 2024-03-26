@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ChirpFormController from "./chirp_form_controller"
+application.register("chirp-form", ChirpFormController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
