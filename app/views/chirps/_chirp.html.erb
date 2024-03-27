@@ -1,10 +1,15 @@
 <%= turbo_frame_tag dom_id(chirp) do %>
-    <div class="py-3 px-4 chirp">
-        <% if chirp.created_at < 1.day.ago%>
-            <p> @<%= chirp.user.username %> &middot <%= chirp.created_at.strftime("%b %-d")%></p>
-        <% else %>
-            <p> @<%= chirp.user.username %> &middot <%= time_ago_in_words(chirp.created_at)%> ago</p>
-        <% end %>
-        <p class="mb-0"> <%= chirp.body %> </p>
+    <div class="py-3 px-3 chirp d-flex">
+        <div class="flex-shrink-0">
+            <%= image_tag chirp.user.avatar, size: "48x48", class: "rounded-circle" %>
+        </div>
+        <div class="flex-grow-1 ms-3">
+            <% if chirp.created_at < 1.day.ago%>
+                <p class="mb-0"><span class="fw-bold"><%= chirp.user.display_name %></span>  <span class="text-secondary">@<%= chirp.user.username %> &middot <%= chirp.created_at.strftime("%b %-d")%></span></p>
+            <% else %>
+                <p class="mb-0"><span class="fw-bold"><%= chirp.user.display_name %></span>  <span class="text-secondary">@<%= chirp.user.username %> &middot <%= time_ago_in_words(chirp.created_at)%> ago</span></p>
+            <% end %>
+            <p class="mb-0"> <%= chirp.body %> </p>
+        </div>
     </div>
 <% end %>

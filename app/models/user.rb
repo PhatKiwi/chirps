@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :chirps, dependent: :destroy
+  has_one_attached :avatar
 
   validates :username, uniqueness: { case_sensitive: false}, allow_blank: true
 
