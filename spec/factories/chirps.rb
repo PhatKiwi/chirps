@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :chirp do
-    user { nil }
+    user
     body { "MyString" }
   end
 end

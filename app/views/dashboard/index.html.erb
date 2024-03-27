@@ -9,7 +9,7 @@
           <%= render "shared/chirp_form"%>
         </div>
         <div id="chirps">
-          <%= render Chirp.order(created_at: :desc) %>
+          <%= render partial: "chirps/chirp", collection: @chirps, as: :chirp_presenter %>
         </div>
     </div>
     <div class="col">
