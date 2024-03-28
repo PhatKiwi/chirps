@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :chirps, only: :create do
     resources :likes, only: [:create, :destroy]
+    resources :bookmarks, only: [:create, :destroy]
   end
 
   resources :usernames, only: [:new, :update]

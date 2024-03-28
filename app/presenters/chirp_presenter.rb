@@ -28,7 +28,7 @@ class ChirpPresenter
     end
   end
 
-  def turbo_data_method
+  def turbo_like_data_method
     if chirp_liked_by_current_user?
       "delete"
     else
@@ -44,9 +44,45 @@ class ChirpPresenter
     end
   end
 
+  def bookmark_chirp_url
+    if chirp_bookmarked_by_current_user?
+      chirp_bookmark_path(chirp, @current_user.bookmarks.find_by(chirp: chirp))
+    else
+      chirp_bookmarks_path(chirp)
+    end
+  end
+
+  def turbo_bookmark_data_method
+    if chirp_bookmarked_by_current_user?
+      "delete"
+    else
+      "post"
+    end
+  end
+
+  def bookmark_image
+    if chirp_bookmarked_by_current_user?
+      "bookmark-filled.png"
+    else
+      "bookmark.png"
+    end
+  end
+
+  def bookmark_text
+    if chirp_bookmarked_by_current_user?
+      "Bookmarked"
+    else
+      "Bookmark"
+    end
+  end
+
   private
 
   def chirp_liked_by_current_user?
     @chirp_liked_by_current_user ||= chirp.liked_users.include?(@current_user)
+  end
+
+  def chirp_bookmarked_by_current_user?
+    @chirp_bookmarked_by_current_user ||= chirp.bookmarked_users.include?(@current_user)
   end
 end

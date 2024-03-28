@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :chirps, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_chirps, through: :likes, source: :chirp
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_chirps, through: :bookmarks, source: :chirp
 
   validates :username, uniqueness: { case_sensitive: false}, allow_blank: true
 

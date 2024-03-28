@@ -20,7 +20,7 @@
                 <div>
                     <%= link_to '#', class: "text-decoration-none text-black messages" do %>
                         <%= image_tag "messenger.png", width: "24px", class: "me-1"%>
-                        <span>Messages</span>
+                        <span>Replies</span>
                     <% end %>
                 </div>
                 <div>
@@ -30,15 +30,15 @@
                     <% end %>
                 </div>
                 <div>
-                    <%= link_to chirp_presenter.like_chirp_url, data: {"turbo-method": chirp_presenter.turbo_data_method }, class: "text-decoration-none text-black likes" do %>
+                    <%= link_to chirp_presenter.like_chirp_url, data: { "turbo-method": chirp_presenter.turbo_like_data_method }, class: "text-decoration-none text-black likes" do %>
                         <%= image_tag chirp_presenter.like_heart_image, width: "24px", class: "me-1"%>
                         <span><%= chirp_presenter.likes_count %></span>
                     <% end %>
                 </div>
                 <div>
-                    <%= link_to '#', class: "text-decoration-none text-black bookmark" do %>
-                        <%= image_tag "bookmark.png", width: "24px", class: "me-1"%>
-                        <span>Bookmark</span>
+                    <%= link_to chirp_presenter.bookmark_chirp_url, data: { "turbo-method": chirp_presenter.turbo_bookmark_data_method },    class: "text-decoration-none text-black bookmark" do %>
+                        <%= image_tag chirp_presenter.bookmark_image, width: "24px", class: "me-1"%>
+                        <span><%= chirp_presenter.bookmark_text %></span>
                     <% end %>
                 </div>
             </div>
