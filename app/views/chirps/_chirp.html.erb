@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(chirp_presenter.chirp) do %>
-    <div class="py-3 px-3 chirp d-flex">
+    <div class="py-3 px-3 chirp d-flex border border-light">
         <div class="flex-shrink-0">
             <%= image_tag chirp_presenter.avatar, size: "48x48", class: "rounded-circle" %>
         </div>
@@ -8,7 +8,40 @@
                 <span class="fw-bold"><%= chirp_presenter.display_name %></span>
                 <span class="text-secondary">@<%= chirp_presenter.username %> &middot <%= chirp_presenter.created_at%></span>
             </p>
-            <p class="mb-0"> <%= chirp_presenter.body %> </p>
+            <p> <%= chirp_presenter.body %> </p>
+
+            <div class="d-flex justify-content-between action-links">
+                <div>
+                    <%= link_to '#', class: "text-decoration-none text-black views" do %>
+                        <%= image_tag "analytics.png", width: "24px", class: "me-1"%>
+                        <span>Views</span>
+                    <% end %>
+                </div>
+                <div>
+                    <%= link_to '#', class: "text-decoration-none text-black messages" do %>
+                        <%= image_tag "messenger.png", width: "24px", class: "me-1"%>
+                        <span>Messages</span>
+                    <% end %>
+                </div>
+                <div>
+                    <%= link_to '#', class: "text-decoration-none text-black rechirps" do %>
+                        <%= image_tag "rechirp.png", width: "24px", class: "me-1"%>
+                        <span>Rechirp</span>
+                    <% end %>
+                </div>
+                <div>
+                    <%= link_to '#', class: "text-decoration-none text-black likes" do %>
+                        <%= image_tag "heart.png", width: "24px", class: "me-1"%>
+                        <span>Likes</span>
+                    <% end %>
+                </div>
+                <div>
+                    <%= link_to '#', class: "text-decoration-none text-black bookmark" do %>
+                        <%= image_tag "bookmark.png", width: "24px", class: "me-1"%>
+                        <span>Bookmark</span>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
 <% end %>

@@ -9,3 +9,36 @@
         cursor: pointer;
     }
 }
+
+.action-links {
+    a {
+        span {
+            position: relative;
+            top: 2px;
+        }
+
+        &.views, &.messages {
+            &:hover {
+                color: blue !important;
+            }
+        }
+
+        &.likes {
+            &:hover {
+                color: red !important;
+            }
+        }
+
+        &.bookmark {
+            &:hover {
+                color: rgb(198, 198, 5) !important;
+            }
+        }
+
+        &.rechirps {
+            &:hover {
+                color: green !important;
+            }
+        }
+    }
+}
