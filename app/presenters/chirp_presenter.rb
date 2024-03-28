@@ -7,7 +7,7 @@ class ChirpPresenter
 
   attr_reader :chirp
 
-  delegate :user, :body, to: :chirp
+  delegate :user, :body, :likes, to: :chirp
   delegate :display_name, :username, :avatar, to: :user
 
   def created_at

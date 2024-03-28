@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   get :dashboard, to: "dashboard#index"
 
-  resources :chirps, only: :create
+  resources :chirps, only: :create do
+    resources :likes, only: [:create, :destroy]
+  end
+
   resources :usernames, only: [:new, :update]
 end

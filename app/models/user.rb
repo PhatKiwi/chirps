@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :chirps, dependent: :destroy
   has_one_attached :avatar
+  has_many :chirps, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_chirps, through: :likes, source: :chirp
 
   validates :username, uniqueness: { case_sensitive: false}, allow_blank: true
 
