@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
 
   def index
     @chirps = Chirp
-                .includes(:likes, :user)
+                .includes(:liked_users, :user)
                 .order(created_at: :desc)
                 .map { |chirp| ChirpPresenter.new(chirp: chirp, current_user: current_user) }
   end
