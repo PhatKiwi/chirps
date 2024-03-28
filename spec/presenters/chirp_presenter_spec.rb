@@ -14,14 +14,14 @@ RSpec.describe ChirpPresenter, type: :presenter do
       it "displays date format" do
         chirp = create(:chirp)
         chirp.update! created_at: 2.days.ago
-        expect(ChirpPresenter.new(chirp).created_at).to eq("Aug 30")
+        expect(ChirpPresenter.new(chirp: chirp, current_user: build_stubbed(:user)).created_at).to eq("Aug 30")
       end
     end
 
     context "before 24 hours have passed" do
       it "displays time ago in words" do
         chirp = create(:chirp)
-        expect(ChirpPresenter.new(chirp).created_at).to eq("less than a minute ago")
+        expect(ChirpPresenter.new(chirp: chirp, current_user: build_stubbed(:user)).created_at).to eq("less than a minute ago")
       end
     end
   end

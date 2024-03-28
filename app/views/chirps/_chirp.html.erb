@@ -30,16 +30,9 @@
                     <% end %>
                 </div>
                 <div>
-                    <% if chirp_presenter.likes.include?(current_user.likes.find_by(chirp: chirp_presenter.chirp)) %>
-                        <%= link_to chirp_like_path(chirp_presenter.chirp, chirp_presenter.chirp.likes.find_by(user: current_user)), data: {"turbo-method": "delete" }, class: "text-decoration-none text-black likes" do %>
-                            <%= image_tag "red-heart.png", width: "24px", class: "me-1"%>
-                            <span><%= chirp_presenter.likes.size %></span>
-                        <% end %>
-                    <% else %>
-                        <%= link_to chirp_likes_path(chirp_presenter.chirp), data: {"turbo-method": "post" }, class: "text-decoration-none text-black likes" do %>
-                            <%= image_tag "heart.png", width: "24px", class: "me-1"%>
-                            <span><%= chirp_presenter.likes.size %></span>
-                        <% end %>
+                    <%= link_to chirp_presenter.like_chirp_url, data: {"turbo-method": chirp_presenter.turbo_data_method }, class: "text-decoration-none text-black likes" do %>
+                        <%= image_tag chirp_presenter.like_heart_image, width: "24px", class: "me-1"%>
+                        <span><%= chirp_presenter.likes_count %></span>
                     <% end %>
                 </div>
                 <div>

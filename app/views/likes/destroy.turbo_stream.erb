@@ -1,3 +1,3 @@
 <%= turbo_stream.replace dom_id(@chirp) do %>
-    <%= render partial: "chirps/chirp", locals: { chirp_presenter: ChirpPresenter.new(@chirp) } %>
+    <%= render partial: "chirps/chirp", locals: { chirp_presenter: ChirpPresenter.new(chirp: @chirp, current_user: current_user) } %>
 <% end %>
